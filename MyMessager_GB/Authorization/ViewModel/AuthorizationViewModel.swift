@@ -42,7 +42,7 @@ class AuthorizationViewModelImpl: AuthorizationViewModel {
     private func checkParams(model: AuthorizationModel) -> Bool{
         checkLogin(login: model.login) && checkPassword(password: model.password)
     }
-    
+    //MARK: - HELP
     //Подскажите где должны находится эти два медота в AuthorizationModel или тут?
     private func checkLogin(login: String) -> Bool{
         login == "admin"
