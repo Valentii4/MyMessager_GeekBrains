@@ -15,6 +15,7 @@
 		A74C018F2634138100F97A23 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C018E2634138100F97A23 /* AuthorizationViewController.swift */; };
 		A74C01952634260800F97A23 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C01942634260800F97A23 /* AuthorizationModel.swift */; };
 		A74C019A2634274400F97A23 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C01992634274400F97A23 /* AuthorizationViewModel.swift */; };
+		A7A257B326382FF200FA0544 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A257B226382FF200FA0544 /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A74C018E2634138100F97A23 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		A74C01942634260800F97A23 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		A74C01992634274400F97A23 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		A7A257B226382FF200FA0544 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		A74C01772634115800F97A23 /* MyMessager_GB */ = {
 			isa = PBXGroup;
 			children = (
+				A7A257AE26382D9300FA0544 /* Friends */,
 				A74C01922634255F00F97A23 /* Authorization */,
 				A74C01782634115800F97A23 /* AppDelegate.swift */,
 				A74C017A2634115800F97A23 /* SceneDelegate.swift */,
@@ -103,6 +106,38 @@
 				A74C01992634274400F97A23 /* AuthorizationViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A7A257AE26382D9300FA0544 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				A7A257B126382DB800FA0544 /* Model */,
+				A7A257B026382DB200FA0544 /* ViewModel */,
+				A7A257AF26382DAE00FA0544 /* View */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		A7A257AF26382DAE00FA0544 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7A257B226382FF200FA0544 /* FriendsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7A257B026382DB200FA0544 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A7A257B126382DB800FA0544 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +214,7 @@
 				A74C01952634260800F97A23 /* AuthorizationModel.swift in Sources */,
 				A74C01792634115800F97A23 /* AppDelegate.swift in Sources */,
 				A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */,
+				A7A257B326382FF200FA0544 /* FriendsViewController.swift in Sources */,
 				A74C019A2634274400F97A23 /* AuthorizationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
