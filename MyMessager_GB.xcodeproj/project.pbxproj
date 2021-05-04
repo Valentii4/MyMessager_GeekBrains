@@ -15,6 +15,13 @@
 		A74C018F2634138100F97A23 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C018E2634138100F97A23 /* AuthorizationViewController.swift */; };
 		A74C01952634260800F97A23 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C01942634260800F97A23 /* AuthorizationModel.swift */; };
 		A74C019A2634274400F97A23 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C01992634274400F97A23 /* AuthorizationViewModel.swift */; };
+		A7936D1E26412C3700F278EB /* Persone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D1D26412C3700F278EB /* Persone.swift */; };
+		A7936D2026412D9100F278EB /* FriendsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D1F26412D9100F278EB /* FriendsTableViewModel.swift */; };
+		A7936D2226413FF200F278EB /* FrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D2126413FF200F278EB /* FrendTableViewCell.swift */; };
+		A7936D2526414B5A00F278EB /* DefaultErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D2426414B5A00F278EB /* DefaultErrors.swift */; };
+		A7936D28264185C600F278EB /* PersoneCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D27264185C600F278EB /* PersoneCollectionViewController.swift */; };
+		A7936D2C2641B03200F278EB /* PersoneCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D2B2641B03200F278EB /* PersoneCollectionViewModel.swift */; };
+		A7936D2E2641B31300F278EB /* PersoneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D2D2641B31300F278EB /* PersoneCollectionViewCell.swift */; };
 		A7A257B326382FF200FA0544 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A257B226382FF200FA0544 /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +36,13 @@
 		A74C018E2634138100F97A23 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		A74C01942634260800F97A23 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		A74C01992634274400F97A23 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		A7936D1D26412C3700F278EB /* Persone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persone.swift; sourceTree = "<group>"; };
+		A7936D1F26412D9100F278EB /* FriendsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewModel.swift; sourceTree = "<group>"; };
+		A7936D2126413FF200F278EB /* FrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrendTableViewCell.swift; sourceTree = "<group>"; };
+		A7936D2426414B5A00F278EB /* DefaultErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultErrors.swift; sourceTree = "<group>"; };
+		A7936D27264185C600F278EB /* PersoneCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoneCollectionViewController.swift; sourceTree = "<group>"; };
+		A7936D2B2641B03200F278EB /* PersoneCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoneCollectionViewModel.swift; sourceTree = "<group>"; };
+		A7936D2D2641B31300F278EB /* PersoneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoneCollectionViewCell.swift; sourceTree = "<group>"; };
 		A7A257B226382FF200FA0544 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +76,8 @@
 		A74C01772634115800F97A23 /* MyMessager_GB */ = {
 			isa = PBXGroup;
 			children = (
+				A7936D2326414B2800F278EB /* Value */,
+				A7936D26264185AE00F278EB /* Persone */,
 				A7A257AE26382D9300FA0544 /* Friends */,
 				A74C01922634255F00F97A23 /* Authorization */,
 				A74C01782634115800F97A23 /* AppDelegate.swift */,
@@ -108,6 +124,40 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A7936D2326414B2800F278EB /* Value */ = {
+			isa = PBXGroup;
+			children = (
+				A7936D2426414B5A00F278EB /* DefaultErrors.swift */,
+			);
+			path = Value;
+			sourceTree = "<group>";
+		};
+		A7936D26264185AE00F278EB /* Persone */ = {
+			isa = PBXGroup;
+			children = (
+				A7936D2A2641B02B00F278EB /* ViewModel */,
+				A7936D292641B02300F278EB /* View */,
+			);
+			path = Persone;
+			sourceTree = "<group>";
+		};
+		A7936D292641B02300F278EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7936D27264185C600F278EB /* PersoneCollectionViewController.swift */,
+				A7936D2D2641B31300F278EB /* PersoneCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7936D2A2641B02B00F278EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7936D2B2641B03200F278EB /* PersoneCollectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A7A257AE26382D9300FA0544 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A257B226382FF200FA0544 /* FriendsViewController.swift */,
+				A7936D2126413FF200F278EB /* FrendTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +180,7 @@
 		A7A257B026382DB200FA0544 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A7936D1F26412D9100F278EB /* FriendsTableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -136,6 +188,7 @@
 		A7A257B126382DB800FA0544 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7936D1D26412C3700F278EB /* Persone.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,10 +263,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7936D2226413FF200F278EB /* FrendTableViewCell.swift in Sources */,
+				A7936D2C2641B03200F278EB /* PersoneCollectionViewModel.swift in Sources */,
 				A74C018F2634138100F97A23 /* AuthorizationViewController.swift in Sources */,
+				A7936D2E2641B31300F278EB /* PersoneCollectionViewCell.swift in Sources */,
+				A7936D2526414B5A00F278EB /* DefaultErrors.swift in Sources */,
+				A7936D1E26412C3700F278EB /* Persone.swift in Sources */,
 				A74C01952634260800F97A23 /* AuthorizationModel.swift in Sources */,
 				A74C01792634115800F97A23 /* AppDelegate.swift in Sources */,
 				A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */,
+				A7936D2026412D9100F278EB /* FriendsTableViewModel.swift in Sources */,
+				A7936D28264185C600F278EB /* PersoneCollectionViewController.swift in Sources */,
 				A7A257B326382FF200FA0544 /* FriendsViewController.swift in Sources */,
 				A74C019A2634274400F97A23 /* AuthorizationViewModel.swift in Sources */,
 			);

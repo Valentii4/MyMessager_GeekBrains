@@ -8,7 +8,7 @@
 import UIKit
 
 
-class AuthorizationViewController: UIViewController {
+final class AuthorizationViewController: UIViewController {
     
     var vm: AuthorizationViewModel?
     
@@ -39,6 +39,7 @@ class AuthorizationViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    //MARK: - Segue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard identifier == "loginSegue",
               let isLogin = vm?.login(login: loginTextField?.text,
@@ -49,8 +50,21 @@ class AuthorizationViewController: UIViewController {
         else{
             return false
         }
-        
+
         return isLogin
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "loginSegue",
+              let tableVC = segue.destination as? UITabBarController,
+              let navVC = tableVC.viewControllers?.first as? UINavigationController,
+              let vc = navVC.viewControllers.first as? FriendsViewController
+        else{
+            return
+        }
+        vc.frendsVM = FriendsTableViewModelImpl()
+        self.navigationController?.navigationBar.isHidden = true
+        print("Авторизовались")
     }
     
     //MARK: - Settings

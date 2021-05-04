@@ -35,12 +35,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pw7-Ab-8Ti">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pw7-Ab-8Ti">
                                                 <rect key="frame" x="32" y="364" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-x9-8Ik">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-x9-8Ik">
                                                 <rect key="frame" x="32" y="459" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -134,15 +134,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCell" id="gVJ-hf-LeF">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FrendTableViewCell" rowHeight="143" id="gVJ-hf-LeF" customClass="FrendTableViewCell" customModule="MyMessager_GB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="143"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gVJ-hf-LeF" id="79Z-fF-riS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r32-hX-KG4">
+                                            <rect key="frame" x="28" y="20.5" width="114" height="102"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIK-Gm-jMH">
+                                            <rect key="frame" x="150" y="19" width="41.5" height="105"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KIK-Gm-jMH" firstAttribute="leading" secondItem="r32-hX-KG4" secondAttribute="trailing" priority="999" constant="8" id="DL8-WZ-hFz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="KIK-Gm-jMH" secondAttribute="bottom" constant="8" id="Fkq-6u-OSH"/>
+                                        <constraint firstItem="r32-hX-KG4" firstAttribute="width" secondItem="79Z-fF-riS" secondAttribute="width" multiplier="0.275362" id="LbI-DY-p8E"/>
+                                        <constraint firstItem="KIK-Gm-jMH" firstAttribute="top" secondItem="79Z-fF-riS" secondAttribute="topMargin" constant="8" id="QCK-Hr-JHO"/>
+                                        <constraint firstItem="r32-hX-KG4" firstAttribute="height" secondItem="79Z-fF-riS" secondAttribute="height" multiplier="0.734266" id="Yyt-fs-B3h"/>
+                                        <constraint firstItem="r32-hX-KG4" firstAttribute="top" secondItem="79Z-fF-riS" secondAttribute="topMargin" constant="8" id="bx4-Tb-l9i"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="r32-hX-KG4" secondAttribute="bottom" constant="8" id="fIv-Uk-92a"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="KIK-Gm-jMH" secondAttribute="trailing" constant="8" id="ffW-YX-g13"/>
+                                        <constraint firstItem="r32-hX-KG4" firstAttribute="leading" secondItem="79Z-fF-riS" secondAttribute="leadingMargin" constant="8" id="fuU-Y5-Ywy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Kre-Qm-EIM" kind="show" id="4Rk-Ai-fL3"/>
+                                    <outlet property="nameAndSurnameLabel" destination="KIK-Gm-jMH" id="gbh-pO-RRG"/>
+                                    <outlet property="picture" destination="r32-hX-KG4" id="7aN-F6-q6Q"/>
+                                    <segue destination="Kre-Qm-EIM" kind="show" identifier="openPerson" id="4Rk-Ai-fL3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -160,7 +184,7 @@
         <!--Collection VC-->
         <scene sceneID="fkR-kE-dbM">
             <objects>
-                <collectionViewController id="Kre-Qm-EIM" sceneMemberID="viewController">
+                <collectionViewController id="Kre-Qm-EIM" customClass="PersoneCollectionViewController" customModule="MyMessager_GB" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ajb-oT-w3U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,13 +196,29 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0ZO-zg-m61">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PersoneCollectionViewCell" id="0ZO-zg-m61" customClass="PersoneCollectionViewCell" customModule="MyMessager_GB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rxa-k2-g7h">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTL-zc-nf0">
+                                            <rect key="frame" x="8" y="8" width="112" height="112"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mTL-zc-nf0" firstAttribute="top" secondItem="rxa-k2-g7h" secondAttribute="top" constant="8" id="0ik-a4-8Cj"/>
+                                        <constraint firstItem="mTL-zc-nf0" firstAttribute="leading" secondItem="rxa-k2-g7h" secondAttribute="leading" constant="8" id="1hR-Gd-y6O"/>
+                                        <constraint firstItem="mTL-zc-nf0" firstAttribute="height" secondItem="rxa-k2-g7h" secondAttribute="height" multiplier="0.875" id="AOc-e8-oRE"/>
+                                        <constraint firstAttribute="bottom" secondItem="mTL-zc-nf0" secondAttribute="bottom" constant="8" id="Tww-SV-1mW"/>
+                                        <constraint firstAttribute="trailing" secondItem="mTL-zc-nf0" secondAttribute="trailing" constant="8" id="Vr4-q9-cNh"/>
+                                        <constraint firstItem="mTL-zc-nf0" firstAttribute="width" secondItem="rxa-k2-g7h" secondAttribute="width" multiplier="0.875" id="uy3-TW-1zC"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="picture" destination="mTL-zc-nf0" id="tGV-Fk-o93"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -260,7 +300,6 @@
         <scene sceneID="EED-wk-edo">
             <objects>
                 <tabBarController id="AMy-SR-vLw" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="HGO-1U-d0D"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VHD-bO-R7W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -278,6 +317,7 @@
         <!--Navigation Controller-->
         <scene sceneID="6TS-4U-TP3">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmu-m6-b2B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TG1-K9-GPu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X4x-Mk-dH5">
@@ -289,7 +329,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Snu-Ae-pxF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bmu-m6-b2B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="88.392857142857139"/>
         </scene>
@@ -297,7 +336,7 @@
         <scene sceneID="pf0-IJ-o4A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p7U-9v-X6L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Группы" image="paperplane" selectedImage="paperplane.fill" catalog="system" id="MTx-vA-wgG"/>
+                    <tabBarItem key="tabBarItem" title="Группы" image="paperplane" catalog="system" selectedImage="paperplane.fill" id="MTx-vA-wgG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yvn-dl-jCy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -334,11 +373,12 @@
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="paperplane" width="128" height="128"/>
+        <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="paperplane.circle.fill" catalog="system" width="128" height="121"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
-        <image name="person.2.fill" width="128" height="128"/>
+        <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
