@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 protocol AuthorizationViewModel {
     var isEnabledButtonNext: Bool { get }
     var isEnabledButtonNextUpdate: () -> () { get set }
-    func login(login: String?, password: String?)
+    //MARK: - На сколько нормальным считается решением кинуть сюда создание алерта для отображения? обычно же в VM даже не импортируют UIKit или за исключениями норм?
+    func login(login: String?, password: String?, showErros: @escaping (_ view: UIAlertController) -> ()) -> Bool
     func input(login: String?, password: String?)
 }
 
@@ -27,23 +29,34 @@ class AuthorizationViewModelImpl: AuthorizationViewModel {
         isEnabledButtonNextUpdate()
     }
     
-    func login(login: String?, password: String?) {
+    func login(login: String?, password: String?, showErros: @escaping (_ view: UIAlertController) -> ()) -> Bool{
         guard let login = login, let password = password else {
-            print("Логин или пароль введен не верно")
-            return
+            showErros(createAllertErrors(messageErrors: "Логин или пароль введен не введен"))
+            return false
         }
             
         let model = AuthorizationModel(login: login, password: password)
         let isAuthorization = checkParams(model: model)
-        let result: String =  isAuthorization ? "Вы авторизовались" : "Вы не авторизовались"
-        print(result)
+        if !isAuthorization{
+            showErros(createAllertErrors(messageErrors: "Пользователя с данными параметрами не существует"))
+            return false
+        }else{
+            print("Вы успешно авторизовались")
+            return true
+        }
+    }
+
+    private func createAllertErrors(messageErrors: String) -> UIAlertController{
+        let allert = UIAlertController(title: "Ошибка входа", message: messageErrors, preferredStyle: .alert)
+        let buttonCancel = UIAlertAction(title: "Ок", style: .default)
+        allert.addAction(buttonCancel)
+        return allert
     }
     
     private func checkParams(model: AuthorizationModel) -> Bool{
         checkLogin(login: model.login) && checkPassword(password: model.password)
     }
-    //MARK: - HELP
-    //Подскажите где должны находится эти два медота в AuthorizationModel или тут?
+    
     private func checkLogin(login: String) -> Bool{
         login == "admin"
     }

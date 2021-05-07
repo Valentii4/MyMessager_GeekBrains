@@ -8,7 +8,7 @@
 import UIKit
 
 
-class AuthorizationViewController: UIViewController {
+final class AuthorizationViewController: UIViewController {
     
     var vm: AuthorizationViewModel?
     
@@ -16,9 +16,10 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginTextField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        vm = AuthorizationViewModelImpl()
         settingOnStart()
     }
     
@@ -38,11 +39,32 @@ class AuthorizationViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    //MARK: - Segue
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard identifier == "loginSegue",
+              let isLogin = vm?.login(login: loginTextField?.text,
+                                      password: passwordTextField?.text,
+                                      showErros: { allert in
+                                        self.present(allert, animated: true)
+                                      })
+        else{
+            return false
+        }
+
+        return isLogin
+    }
     
-    //MARK: Actions
-    @IBAction func login(_ sender: Any) {
-        vm?.login(login: loginTextField?.text, password: passwordTextField?.text)
-        print("нажатие на кнопку")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "loginSegue",
+              let tableVC = segue.destination as? UITabBarController,
+              let navVC = tableVC.viewControllers?.first as? UINavigationController,
+              let vc = navVC.viewControllers.first as? FriendsViewController
+        else{
+            return
+        }
+        vc.frendsVM = FriendsTableViewModelImpl()
+        self.navigationController?.navigationBar.isHidden = true
+        print("Авторизовались")
     }
     
     //MARK: - Settings
@@ -50,14 +72,13 @@ class AuthorizationViewController: UIViewController {
         loginTextField.delegate = self
         passwordTextField.delegate = self
         loginButton.layer.cornerRadius = 10
-            // нет ли тут удержания сылок?
-        vm?.isEnabledButtonNextUpdate = {
-            if self.vm?.isEnabledButtonNext ?? true{
-                self.loginButton.isEnabled = false
-                self.loginButton.backgroundColor = .systemGray
+        vm?.isEnabledButtonNextUpdate = { [weak self] in
+            if self?.vm?.isEnabledButtonNext ?? true{
+                self?.loginButton.isEnabled = false
+                self?.loginButton.backgroundColor = .systemGray
             }else{
-                self.loginButton.isEnabled = true
-                self.loginButton.backgroundColor = .systemBlue
+                self?.loginButton.isEnabled = true
+                self?.loginButton.backgroundColor = .systemBlue
             }
         }
         vm?.isEnabledButtonNextUpdate()
