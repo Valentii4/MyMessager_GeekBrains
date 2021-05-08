@@ -19,7 +19,9 @@ class FriendsTableViewModelImpl {
                                       Persone(firstname: "Петров", surname: "Иван", age: 37, photoNames: ["21", "22", "23"]),
                                       Persone(firstname: "Сидоров", surname: "Иван", age: 45, photoNames: ["31","32","33"]),
                                       Persone(firstname: "Щербаков", surname: "Иван", age: 23, photoNames: ["41"]),
-                                      Persone(firstname: "Миронов", surname: "Валентин", age: 20, photoNames: ["51","52","53","54"])]
+                                      Persone(firstname: "Миронов", surname: "Валентин", age: 20, photoNames: ["51","52","53","54"]),
+                                      Persone(firstname: "Ящерка", surname: "Обыкновенная", age: 20, photoNames: ["61","54"]),
+                                      Persone(firstname: "Ящерка", surname: "Необыкновенная", age: 20, photoNames: ["71","54"])]
       
     private func isCheckingThePersonExistence(index: Int) -> Bool{
         index < friends.count
