@@ -10,5 +10,6 @@ struct Persone {
     let firstname: String
     let surname: String
     let age: Int
-    let photoNames: [String]
+//    let photoNames: [String]
+    let photos: [Picture]
 }

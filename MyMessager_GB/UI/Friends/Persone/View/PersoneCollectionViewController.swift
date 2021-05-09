@@ -28,42 +28,22 @@ class PersoneCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersoneCollectionViewCell.reuseIdentifier, for: indexPath) as? PersoneCollectionViewCell, let vm = personeVM else{
             return UICollectionViewCell()
         }
-    
-        let image =  vm.getPhotoWithIndexPath(row: indexPath.row)
-        cell.configure(image: image)
+        let picture =  vm.getPhotoWithIndexPath(row: indexPath.row)
+        cell.configure(image: picture.image, countLikes: picture.likeCount, isLiking: picture.isLiking)
     
         return cell
     }
+}
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+extension PersoneCollectionViewController: UICollectionViewDelegateFlowLayout{
+    private var spacing: CGFloat { return 10 }
+    private var itemsInRow: Int { return 2 }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthSpasings: CGFloat = spacing * CGFloat((itemsInRow + 1))
+        let widthItemsInRow = collectionView.frame.width - widthSpasings
+        let widthItem = widthItemsInRow/CGFloat(itemsInRow)
+        let height = widthItem * 0.138889 + 16 + widthItem
+        return CGSize(width: widthItem, height: height)
     }
-    */
-
 }

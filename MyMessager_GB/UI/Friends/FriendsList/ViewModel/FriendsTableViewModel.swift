@@ -15,14 +15,20 @@ protocol FriendsTableViewModel {
 }
 
 class FriendsTableViewModelImpl {
-    private let friends: [Persone] = [Persone(firstname: "Иванов", surname: "Иван", age: 25, photoNames: ["11", "12"]),
-                                      Persone(firstname: "Петров", surname: "Иван", age: 37, photoNames: ["21", "22", "23"]),
-                                      Persone(firstname: "Сидоров", surname: "Иван", age: 45, photoNames: ["31","32","33"]),
-                                      Persone(firstname: "Щербаков", surname: "Иван", age: 23, photoNames: ["41"]),
-                                      Persone(firstname: "Миронов", surname: "Валентин", age: 20, photoNames: ["51","52","53","54"]),
-                                      Persone(firstname: "Ящерка", surname: "Обыкновенная", age: 20, photoNames: ["61","54"]),
-                                      Persone(firstname: "Ящерка", surname: "Необыкновенная", age: 20, photoNames: ["71","54"])]
-      
+    private let friends: [Persone] = [Persone(firstname: "Иванов", surname: "Иван", age: 25, photos: [Picture(image: UIImage(named: "11")), Picture(image: UIImage(named: "12"))]),
+                                      
+                                      Persone(firstname: "Петров", surname: "Иван", age: 37, photos: [Picture(image: UIImage(named: "21")),Picture(image: UIImage(named: "22")),Picture(image: UIImage(named: "23"))]),
+                                      
+                                      Persone(firstname: "Сидоров", surname: "Иван", age: 45, photos: [Picture(image: UIImage(named: "31")),Picture(image: UIImage(named: "32")),Picture(image: UIImage(named: "33"))]),
+                                      
+                                      Persone(firstname: "Щербаков", surname: "Иван", age: 23, photos: [Picture(image: UIImage(named: "41"))]),
+                                      
+                                      Persone(firstname: "Миронов", surname: "Валентин", age: 20, photos: [Picture(image: UIImage(named: "51")),Picture(image: UIImage(named: "52")),Picture(image: UIImage(named: "53")),Picture(image: UIImage(named: "54"))]),
+                                      
+                                      Persone(firstname: "Ящерка", surname: "Обыкновенная", age: 20, photos: [Picture(image: UIImage(named: "61")),Picture(image: UIImage(named: "54"))]),
+                                      
+                                      Persone(firstname: "Ящерка", surname: "Необыкновенная", age: 20, photos: [Picture(image: UIImage(named: "71")),Picture(image: UIImage(named: "54"))])]
+    
     private func isCheckingThePersonExistence(index: Int) -> Bool{
         index < friends.count
     }
@@ -58,7 +64,7 @@ extension FriendsTableViewModelImpl: FriendsTableViewModel{
         }
         let frend = friends[index]
         
-        guard let photoName = frend.photoNames.first, let photo = UIImage(named: photoName) else {
+        guard let photo = frend.photos.first?.image  else {
             throw DefaultErrors.notHavePhotos
         }
         return photo

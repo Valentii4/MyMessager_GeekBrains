@@ -10,7 +10,7 @@ import UIKit
 protocol PersoneCollectionViewModel {
     var numberOfItemsInSection: Int { get }
     var title: String { get }
-    func getPhotoWithIndexPath(row: Int) -> UIImage
+    func getPhotoWithIndexPath(row: Int) -> Picture
     
 }
 
@@ -24,14 +24,14 @@ class PersoneCollectionViewModelImpl {
 }
 extension PersoneCollectionViewModelImpl: PersoneCollectionViewModel{
     var numberOfItemsInSection: Int{
-        person.photoNames.count
+        person.photos.count
     }
     var title: String {
         person.firstname
     }
     
-    func getPhotoWithIndexPath(row: Int) -> UIImage {
-        let imageName = person.photoNames[row]
-        return UIImage(named: imageName) ?? UIImage(systemName: "person")!
+    func getPhotoWithIndexPath(row: Int) -> Picture {
+        let picture = person.photos[row]
+        return picture
     }
 }
