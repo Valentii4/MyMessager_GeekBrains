@@ -12,19 +12,18 @@ class PersoneCollectionViewCell: UICollectionViewCell {
     private weak var model: Picture?
 //    var tappedLike: ((_ model: Picture?) -> ())?
     
-    @IBOutlet private weak var picture: UIImageView!
-    @IBOutlet private weak var likeControll: LikeControlImpl!
+    @IBOutlet private weak var presonePhoto: PersonePhoto!
     
     func configure(picture: Picture){
         self.model = picture
-        self.picture.image = picture.image
-        likeControll.countLikes = picture.likeCount
-        likeControll.isLiking = picture.isLiking
-        likeControll.addTarget(self, action: #selector(likeTarget), for: .valueChanged)
+        self.presonePhoto.image = picture.image
+        presonePhoto.countLikes = picture.likeCount
+        presonePhoto.isLiking = picture.isLiking
+        presonePhoto.addTarget(self, action: #selector(likeTarget), for: .valueChanged)
     }
     
     @objc private func likeTarget(){
-        model?.likeCount = likeControll.countLikes
-        model?.isLiking = likeControll.isLiking
+        model?.likeCount = presonePhoto.countLikes
+        model?.isLiking = presonePhoto.isLiking
     }
 }

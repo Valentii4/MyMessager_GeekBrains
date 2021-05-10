@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7071E9326466EF500ED7C53 /* PhotoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7071E9226466EF500ED7C53 /* PhotoImpl.swift */; };
+		A7071E9326466EF500ED7C53 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7071E9226466EF500ED7C53 /* Photo.swift */; };
 		A70CA5E726493F5500ABBB03 /* PersonePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70CA5E626493F5500ABBB03 /* PersonePhoto.swift */; };
 		A74C01792634115800F97A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C01782634115800F97A23 /* AppDelegate.swift */; };
 		A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C017A2634115800F97A23 /* SceneDelegate.swift */; };
@@ -24,7 +24,7 @@
 		A7936D28264185C600F278EB /* PersoneCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D27264185C600F278EB /* PersoneCollectionViewController.swift */; };
 		A7936D2C2641B03200F278EB /* PersoneCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D2B2641B03200F278EB /* PersoneCollectionViewModel.swift */; };
 		A7936D2E2641B31300F278EB /* PersoneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7936D2D2641B31300F278EB /* PersoneCollectionViewCell.swift */; };
-		A79D3382264801140067ADD6 /* LikeControlImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D3381264801140067ADD6 /* LikeControlImpl.swift */; };
+		A79D3382264801140067ADD6 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D3381264801140067ADD6 /* LikeControl.swift */; };
 		A79D33852648144D0067ADD6 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D33842648144D0067ADD6 /* Picture.swift */; };
 		A7A257B326382FF200FA0544 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A257B226382FF200FA0544 /* FriendsViewController.swift */; };
 		A7BA2AC92645221700145D77 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA2AC82645221700145D77 /* Group.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A7071E9226466EF500ED7C53 /* PhotoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImpl.swift; sourceTree = "<group>"; };
+		A7071E9226466EF500ED7C53 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A70CA5E626493F5500ABBB03 /* PersonePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonePhoto.swift; sourceTree = "<group>"; };
 		A74C01752634115800F97A23 /* MyMessager_GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMessager_GB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74C01782634115800F97A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		A7936D27264185C600F278EB /* PersoneCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoneCollectionViewController.swift; sourceTree = "<group>"; };
 		A7936D2B2641B03200F278EB /* PersoneCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoneCollectionViewModel.swift; sourceTree = "<group>"; };
 		A7936D2D2641B31300F278EB /* PersoneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoneCollectionViewCell.swift; sourceTree = "<group>"; };
-		A79D3381264801140067ADD6 /* LikeControlImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControlImpl.swift; sourceTree = "<group>"; };
+		A79D3381264801140067ADD6 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		A79D33842648144D0067ADD6 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		A7A257B226382FF200FA0544 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A7BA2AC82645221700145D77 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -209,8 +209,8 @@
 		A79D3380264800D80067ADD6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A7071E9226466EF500ED7C53 /* PhotoImpl.swift */,
-				A79D3381264801140067ADD6 /* LikeControlImpl.swift */,
+				A7071E9226466EF500ED7C53 /* Photo.swift */,
+				A79D3381264801140067ADD6 /* LikeControl.swift */,
 				A70CA5E626493F5500ABBB03 /* PersonePhoto.swift */,
 			);
 			path = Utils;
@@ -433,9 +433,9 @@
 				A79D33852648144D0067ADD6 /* Picture.swift in Sources */,
 				A7BA2AE52645667400145D77 /* AllGroupsViewModel.swift in Sources */,
 				A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */,
-				A7071E9326466EF500ED7C53 /* PhotoImpl.swift in Sources */,
+				A7071E9326466EF500ED7C53 /* Photo.swift in Sources */,
 				A7936D2026412D9100F278EB /* FriendsTableViewModel.swift in Sources */,
-				A79D3382264801140067ADD6 /* LikeControlImpl.swift in Sources */,
+				A79D3382264801140067ADD6 /* LikeControl.swift in Sources */,
 				A7936D28264185C600F278EB /* PersoneCollectionViewController.swift in Sources */,
 				A7A257B326382FF200FA0544 /* FriendsViewController.swift in Sources */,
 				A74C019A2634274400F97A23 /* AuthorizationViewModel.swift in Sources */,

@@ -19,19 +19,17 @@ protocol Photo {
     var isNeededShadowGraient: Bool { get set }
     var contentsGravity: CALayerContentsGravity { get set }
     var image: UIImage?  { get set }
+    var shapeName: String? { get set }
 }
 
-@IBDesignable class PhotoImpl: UIView, Photo {
+@IBDesignable class PhotoImpl: UIView, Photo {    
     var shapeEnum = Shape.Square{
         didSet{
             setNeedsDisplay()
         }
     }
-
-    // And another stored property which will only be accessible in IB (because the "unavailable" attribute prevents its use in code)
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'shape' instead.")
     
-    @IBInspectable private var shapeName: String? {
+    @IBInspectable var shapeName: String? = nil{
         willSet {
             // Ensure user enters a valid shape while making it lowercase.
             // Ignore input if not valid.
@@ -40,6 +38,7 @@ protocol Photo {
             }
         }
     }
+    
     
     @IBInspectable var shadowOpacity: CGFloat = 0.9{
         didSet {
@@ -201,4 +200,5 @@ protocol Photo {
     }
     
 }
+
 

@@ -11,10 +11,10 @@ protocol LikeControl {
     var countLikes: Int { get set }
     var isLiking: Bool { get set }
     var color: UIColor { get set }
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)
 }
 
 @IBDesignable class LikeControlImpl: UIControl, LikeControl {
-
     var isLiking: Bool = false {
         didSet{
             setImage()

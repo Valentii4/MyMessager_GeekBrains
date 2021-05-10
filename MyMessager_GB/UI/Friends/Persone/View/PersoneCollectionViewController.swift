@@ -37,13 +37,13 @@ class PersoneCollectionViewController: UICollectionViewController {
 
 extension PersoneCollectionViewController: UICollectionViewDelegateFlowLayout{
     private var spacing: CGFloat { return 10 }
-    private var itemsInRow: Int { return 2 }
+    private var itemsInRow: Int { return 1 }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthSpasings: CGFloat = spacing * CGFloat((itemsInRow + 1))
         let widthItemsInRow = collectionView.frame.width - widthSpasings
         let widthItem = widthItemsInRow/CGFloat(itemsInRow)
-        let height = widthItem * 0.138889 + 16 + widthItem
+        let height = PersonePhoto.getHight(with: widthItem)
         return CGSize(width: widthItem, height: height)
     }
 }
