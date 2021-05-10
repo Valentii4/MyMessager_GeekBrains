@@ -29,7 +29,7 @@ class PersoneCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         let picture =  vm.getPhotoWithIndexPath(row: indexPath.row)
-        cell.configure(image: picture.image, countLikes: picture.likeCount, isLiking: picture.isLiking)
+        cell.configure(picture: picture)
     
         return cell
     }

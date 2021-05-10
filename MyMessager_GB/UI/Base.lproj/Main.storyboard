@@ -148,13 +148,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-6O-Hzb" customClass="PersonePhoto" customModule="MyMessager_GB" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-6O-Hzb" customClass="Photo" customModule="MyMessager_GB" customModuleProvider="target">
                                             <rect key="frame" x="20" y="19" width="120" height="105"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="SiJ-si-t13"/>
                                                 <constraint firstAttribute="width" constant="120" id="aUh-BD-JR9"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isNeededShadowGraient" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="shapeName" value="square"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <constraints>

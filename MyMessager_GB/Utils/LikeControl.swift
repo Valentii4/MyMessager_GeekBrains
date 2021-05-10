@@ -59,7 +59,7 @@ import UIKit
         case 0..<1000:
             likeString = String(countLikes)
         case 1000..<1_000_000:
-            likeString = String(countLikes) + "k"
+            likeString = String(countLikes/1000) + "k"
         default:
             likeString = "-"
         }

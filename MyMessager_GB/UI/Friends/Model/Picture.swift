@@ -6,13 +6,14 @@
 //
 
 import UIKit
-struct Picture{
+class Picture{
     var image: UIImage?
-    var likeCount: Int = 0
+    lazy var likeCount: Int = 0
     var isLiking:Bool = false
     
     init(image: UIImage?) {
         self.image = image
+        likeCount = Int.random(in: 0...1200)
     }
     
 }

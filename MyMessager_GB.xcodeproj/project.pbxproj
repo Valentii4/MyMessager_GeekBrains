@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7071E9326466EF500ED7C53 /* PersonePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7071E9226466EF500ED7C53 /* PersonePhoto.swift */; };
+		A7071E9326466EF500ED7C53 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7071E9226466EF500ED7C53 /* Photo.swift */; };
 		A74C01792634115800F97A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C01782634115800F97A23 /* AppDelegate.swift */; };
 		A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C017A2634115800F97A23 /* SceneDelegate.swift */; };
 		A74C01802634115800F97A23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74C017E2634115800F97A23 /* Main.storyboard */; };
@@ -40,7 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A7071E9226466EF500ED7C53 /* PersonePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonePhoto.swift; sourceTree = "<group>"; };
+		A7071E9226466EF500ED7C53 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A74C01752634115800F97A23 /* MyMessager_GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMessager_GB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74C01782634115800F97A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74C017A2634115800F97A23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		A79D3380264800D80067ADD6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A7071E9226466EF500ED7C53 /* PersonePhoto.swift */,
+				A7071E9226466EF500ED7C53 /* Photo.swift */,
 				A79D3381264801140067ADD6 /* LikeControl.swift */,
 			);
 			path = Utils;
@@ -430,7 +430,7 @@
 				A79D33852648144D0067ADD6 /* Picture.swift in Sources */,
 				A7BA2AE52645667400145D77 /* AllGroupsViewModel.swift in Sources */,
 				A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */,
-				A7071E9326466EF500ED7C53 /* PersonePhoto.swift in Sources */,
+				A7071E9326466EF500ED7C53 /* Photo.swift in Sources */,
 				A7936D2026412D9100F278EB /* FriendsTableViewModel.swift in Sources */,
 				A79D3382264801140067ADD6 /* LikeControl.swift in Sources */,
 				A7936D28264185C600F278EB /* PersoneCollectionViewController.swift in Sources */,
