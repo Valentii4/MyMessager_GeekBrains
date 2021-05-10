@@ -7,7 +7,13 @@
 
 import UIKit
 
-@IBDesignable class LikeControl: UIControl {
+protocol LikeControl {
+    var countLikes: Int { get set }
+    var isLiking: Bool { get set }
+    var color: UIColor { get set }
+}
+
+@IBDesignable class LikeControlImpl: UIControl, LikeControl {
 
     var isLiking: Bool = false {
         didSet{
@@ -25,6 +31,7 @@ import UIKit
             setImage()
         }
     }
+    
     private let imageView: UIImageView = UIImageView()
     private let countLikesLabel: UILabel = UILabel()
     
@@ -32,6 +39,7 @@ import UIKit
         imageView.frame = bounds
     }
     
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setView()

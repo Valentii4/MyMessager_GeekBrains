@@ -69,6 +69,11 @@
                                                     <constraint firstAttribute="width" constant="170" id="n4R-2P-hAQ"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-b5-srE" customClass="PersonePhoto" customModule="MyMessager_GB" customModuleProvider="target">
+                                                <rect key="frame" x="98" y="247" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -148,7 +153,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-6O-Hzb" customClass="Photo" customModule="MyMessager_GB" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-6O-Hzb" customClass="PhotoImpl" customModule="MyMessager_GB" customModuleProvider="target">
                                             <rect key="frame" x="20" y="19" width="120" height="105"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -157,7 +162,7 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isNeededShadowGraient" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="shapeName" value="square"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="shapeName" value="circle"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
@@ -218,7 +223,7 @@
                                                 <constraint firstAttribute="width" constant="163" id="Y0K-d1-zkj"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGB-dI-6AP" customClass="LikeControl" customModule="MyMessager_GB" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGB-dI-6AP" customClass="LikeControlImpl" customModule="MyMessager_GB" customModuleProvider="target">
                                             <rect key="frame" x="133" y="179" width="30" height="30"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <userDefinedRuntimeAttributes>

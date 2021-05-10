@@ -12,7 +12,7 @@ class FrendTableViewCell: UITableViewCell {
     static let reuseIdentifier = "FrendTableViewCell"
 
     
-    @IBOutlet weak var picture: Photo!
+    @IBOutlet weak var picture: PhotoImpl!
     @IBOutlet weak var nameAndSurnameLabel: UILabel!
     
     func configure(nameAndSurname: String, image: UIImage) {

@@ -13,7 +13,7 @@ class PersoneCollectionViewCell: UICollectionViewCell {
 //    var tappedLike: ((_ model: Picture?) -> ())?
     
     @IBOutlet private weak var picture: UIImageView!
-    @IBOutlet private weak var likeControll: LikeControl!
+    @IBOutlet private weak var likeControll: LikeControlImpl!
     
     func configure(picture: Picture){
         self.model = picture

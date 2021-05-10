@@ -7,20 +7,31 @@
 
 import UIKit
 
-@IBDesignable class Photo: UIView {
-    
-    // 1. Set up your enum
-    enum Shape: String {
-        case Square = "square" // lowercase to make it case-insensitive
-        case Circle = "circle"
+enum Shape: String {
+    case Square = "square" // lowercase to make it case-insensitive
+    case Circle = "circle"
+}
+
+protocol Photo {
+    var shapeEnum: Shape { get set }
+    var shadowOpacity: CGFloat { get set }
+    var shadowRadius: CGFloat { get set }
+    var isNeededShadowGraient: Bool { get set }
+    var contentsGravity: CALayerContentsGravity { get set }
+    var image: UIImage?  { get set }
+}
+
+@IBDesignable class PhotoImpl: UIView, Photo {
+    var shapeEnum = Shape.Square{
+        didSet{
+            setNeedsDisplay()
+        }
     }
 
-    // 2. Then set up a stored property, which will be for use in code
-    var shapeEnum = Shape.Square // default shape
-
-    // 3. And another stored property which will only be accessible in IB (because the "unavailable" attribute prevents its use in code)
+    // And another stored property which will only be accessible in IB (because the "unavailable" attribute prevents its use in code)
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'shape' instead.")
-    @IBInspectable var shapeName: String? {
+    
+    @IBInspectable private var shapeName: String? {
         willSet {
             // Ensure user enters a valid shape while making it lowercase.
             // Ignore input if not valid.
@@ -61,9 +72,9 @@ import UIKit
         }
     }
     
-    var imageLayer: CALayer = CALayer()
-    var shadowLayer: CALayer = CALayer()
-    var gradientLayer = CAGradientLayer()
+    private var imageLayer: CALayer = CALayer()
+    private var shadowLayer: CALayer = CALayer()
+    private var gradientLayer = CAGradientLayer()
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
