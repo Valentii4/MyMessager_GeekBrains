@@ -7,27 +7,56 @@
 
 import UIKit
 
-final class FriendsViewController: UITableViewController {
+final class FriendsViewController: UIViewController {
 
-    var frendsVM: FriendsTableViewModel?
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lettersControl: LettersControl!
+    
+    var friendsVM: FriendsTableViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        let letters = friendsVM?.firstLetters ?? []
+        lettersControl.letters = letters
+        lettersControl.backgroundColor = .clear
+        lettersControl.addTarget(self, action: #selector(selectedLettersControl), for: .valueChanged)
     }
     
-    
+    @objc private func selectedLettersControl(){
+        guard let letter = lettersControl.selectedLetter, let vm = friendsVM else{
+            return
+        }
+        let indexPath = vm.getIndexPathSelectedLetter(letter: letter)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        
+    }
+   
+}
+
+//MARK: - TableView
+extension FriendsViewController: UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return frendsVM?.rows ?? 0
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return friendsVM?.sectionsCount ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friendsVM?.getRowsInSection(section: section) ?? 0
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friendsVM?.getSectionsHeaderTitle(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FrendTableViewCell.reuseIdentifier, for: indexPath) as? FrendTableViewCell else{
             print("Error" + #function + #file)
             return UITableViewCell()
         }
-        if let vm = frendsVM, let nameAndSurname = try? vm.getNameAndSurname(index: indexPath.row){
-            guard let image: UIImage =  (try? vm.getPhoto(index: indexPath.row)) ?? UIImage(systemName: "person") else{
+        let row = indexPath.row
+        let section = indexPath.section
+        if let vm = friendsVM, let nameAndSurname = try? vm.getNameAndSurname(row: row, section: section){
+            guard let image: UIImage =  (try? vm.getPhoto(row: row, section: section)) ?? UIImage(systemName: "person") else{
                 print("Карнтика не установленна")
                 return UITableViewCell()
             }
@@ -45,10 +74,10 @@ extension FriendsViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? PersoneCollectionViewController,
-              let row = tableView.indexPathForSelectedRow?.row else{
+              let indexPath = tableView.indexPathForSelectedRow else{
             return
         }
-        vc.personeVM = try? frendsVM?.getPersonVM(index: row)
+        vc.personeVM = try? friendsVM?.getPersonVM(row: indexPath.row, section: indexPath.section)
     }
     
 }

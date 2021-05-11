@@ -62,7 +62,7 @@ final class AuthorizationViewController: UIViewController {
         else{
             return
         }
-        vc.frendsVM = FriendsTableViewModelImpl()
+        vc.friendsVM = FriendsTableViewModelImpl()
         self.navigationController?.navigationBar.isHidden = true
         print("Авторизовались")
     }

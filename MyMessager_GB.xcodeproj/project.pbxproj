@@ -38,6 +38,7 @@
 		A7BA2AE52645667400145D77 /* AllGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA2AE42645667400145D77 /* AllGroupsViewModel.swift */; };
 		A7BA2AE72645691800145D77 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA2AE62645691800145D77 /* AllGroupsViewController.swift */; };
 		A7E4CB9E2646C9BA001C84BC /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4CB9D2646C9BA001C84BC /* UIImage-Extension.swift */; };
+		A7E5D9D9264A54D900DD65DE /* LettersControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E5D9D8264A54D900DD65DE /* LettersControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		A7BA2AE42645667400145D77 /* AllGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewModel.swift; sourceTree = "<group>"; };
 		A7BA2AE62645691800145D77 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
 		A7E4CB9D2646C9BA001C84BC /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		A7E5D9D8264A54D900DD65DE /* LettersControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				A7071E9226466EF500ED7C53 /* Photo.swift */,
 				A79D3381264801140067ADD6 /* LikeControl.swift */,
 				A70CA5E626493F5500ABBB03 /* PersonePhoto.swift */,
+				A7E5D9D8264A54D900DD65DE /* LettersControl.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				A7BA2AE52645667400145D77 /* AllGroupsViewModel.swift in Sources */,
 				A74C017B2634115800F97A23 /* SceneDelegate.swift in Sources */,
 				A7071E9326466EF500ED7C53 /* Photo.swift in Sources */,
+				A7E5D9D9264A54D900DD65DE /* LettersControl.swift in Sources */,
 				A7936D2026412D9100F278EB /* FriendsTableViewModel.swift in Sources */,
 				A79D3382264801140067ADD6 /* LikeControl.swift in Sources */,
 				A7936D28264185C600F278EB /* PersoneCollectionViewController.swift in Sources */,
