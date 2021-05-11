@@ -43,7 +43,7 @@ class LettersControl: UIControl {
     }
     
     private func setStackView(_ views: [UIView]){
-        stackView = UIStackView(arrangedSubviews: self.buttons)
+        stackView = UIStackView(arrangedSubviews: views)
         stackView.frame = bounds
         addSubview(stackView)
         stackView.spacing = 0

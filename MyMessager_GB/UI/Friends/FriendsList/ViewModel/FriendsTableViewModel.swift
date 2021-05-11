@@ -10,33 +10,27 @@ import UIKit
 protocol FriendsTableViewModel {
     var sectionsCount: Int { get }
     var firstLetters: [String] { get }
+    var updateTableView: () -> () { get set }
     func getNameAndSurname(row: Int, section: Int) throws -> String
     func getPhoto(row: Int, section: Int) throws -> UIImage
     func getPersonVM(row: Int, section: Int) throws -> PersoneCollectionViewModel
     func getRowsInSection(section: Int) -> Int
     func getSectionsHeaderTitle(section: Int) -> String
     func getIndexPathSelectedLetter(letter: LettersControl.Letter) -> IndexPath
+    func updateFrendWithName(name: String?)
 }
 
 class FriendsTableViewModelImpl {
     private var friends: [LettersControl.Letter: Array<Persone>] = [:]
-    private lazy var arrayFriends: [Dictionary<LettersControl.Letter, [Persone]>.Element] = {
+    private var arrayFriends: [Dictionary<LettersControl.Letter, [Persone]>.Element] {
         friends.sorted { $0.key < $1.key}
-    }()
+    }
     
     private(set) var firstLetters: [LettersControl.Letter] = []
     
+    var updateTableView: () -> () = {}
     init() {
-        var allFriends = Persone.frends
-        allFriends.sort{ $0.firstname < $1.firstname}
-        firstLetters = Array(Set(allFriends.compactMap{String($0.firstname.first ?? "*")})).sorted()
-        
-        for firstLetter in firstLetters{
-            let frendsWithFirstLetter = allFriends.filter { friend in
-                String(friend.firstname.first ?? "*") == firstLetter
-            }
-            friends[firstLetter] = frendsWithFirstLetter
-        }
+        updateFrendWithName(name: nil)
     }
     
     private func isCheckingThePersonExistence(row: Int, section: Int) -> Bool{
@@ -59,6 +53,27 @@ class FriendsTableViewModelImpl {
 }
 
 extension FriendsTableViewModelImpl: FriendsTableViewModel{
+    func updateFrendWithName(name: String?){
+        var allFriends: [Persone]
+        if let name = name, name != ""{
+            allFriends = Persone.frends.filter{ $0.firstname.contains(name)}
+            friends.removeAll()
+        }else{
+            allFriends = Persone.frends
+        }
+        allFriends.sort{ $0.firstname < $1.firstname}
+        firstLetters = Array(Set(allFriends.compactMap{String($0.firstname.first ?? "*")})).sorted()
+        
+        for firstLetter in firstLetters{
+            let frendsWithFirstLetter = allFriends.filter { friend in
+                String(friend.firstname.first ?? "*") == firstLetter
+            }
+            friends[firstLetter] = frendsWithFirstLetter
+        }
+        updateTableView()
+    }
+    
+    
     func getIndexPathSelectedLetter(letter: LettersControl.Letter) -> IndexPath{
         for (index,friend) in arrayFriends.enumerated(){
             if friend.key == letter{

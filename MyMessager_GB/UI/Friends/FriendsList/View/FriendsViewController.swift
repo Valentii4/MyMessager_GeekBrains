@@ -9,6 +9,7 @@ import UIKit
 
 final class FriendsViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lettersControl: LettersControl!
     
@@ -19,6 +20,12 @@ final class FriendsViewController: UIViewController {
         lettersControl.letters = letters
         lettersControl.backgroundColor = .clear
         lettersControl.addTarget(self, action: #selector(selectedLettersControl), for: .valueChanged)
+        
+        friendsVM?.updateTableView = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        searchBar.delegate = self
+        tableView.tableFooterView = UIView()
     }
     
     @objc private func selectedLettersControl(){
@@ -26,10 +33,12 @@ final class FriendsViewController: UIViewController {
             return
         }
         let indexPath = vm.getIndexPathSelectedLetter(letter: letter)
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)        
     }
-   
+    @IBAction func tapView(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
 }
 
 //MARK: - TableView
@@ -63,6 +72,22 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource{
             cell.configure(nameAndSurname: nameAndSurname , image: image)
         }
         return cell
+    }
+}
+
+//MARK: - SearchBar
+extension FriendsViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        friendsVM?.updateFrendWithName(name: searchBar.text)
+        view.endEditing(true)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        friendsVM?.updateFrendWithName(name: nil)
+        view.endEditing(true)
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        friendsVM?.updateFrendWithName(name: searchBar.text)
+        view.endEditing(true)
     }
 }
 

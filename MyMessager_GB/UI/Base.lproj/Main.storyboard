@@ -134,8 +134,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-U2-ynh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-U2-ynh">
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FrendTableViewCell" rowHeight="143" id="N2t-Gj-FjB" customClass="FrendTableViewCell" customModule="MyMessager_GB" customModuleProvider="target">
@@ -193,28 +193,41 @@
                                     <constraint firstAttribute="width" constant="30" id="Tea-xP-poM"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bKN-cb-7Yz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PBm-VK-RDu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4nO-U2-ynh" firstAttribute="leading" secondItem="PBm-VK-RDu" secondAttribute="leading" id="2Xs-Dl-FQt"/>
-                            <constraint firstItem="4nO-U2-ynh" firstAttribute="top" secondItem="PBm-VK-RDu" secondAttribute="top" id="5Lz-vk-HSq"/>
                             <constraint firstItem="PBm-VK-RDu" firstAttribute="bottom" secondItem="eLC-5B-r2c" secondAttribute="bottom" constant="40" id="7af-10-BCP"/>
+                            <constraint firstItem="4nO-U2-ynh" firstAttribute="top" secondItem="bKN-cb-7Yz" secondAttribute="bottom" id="9TO-O1-mIs"/>
                             <constraint firstItem="eLC-5B-r2c" firstAttribute="top" secondItem="PBm-VK-RDu" secondAttribute="top" constant="40" id="Dg8-FW-sO7"/>
+                            <constraint firstItem="bKN-cb-7Yz" firstAttribute="top" secondItem="PBm-VK-RDu" secondAttribute="top" id="Op6-er-JKB"/>
                             <constraint firstItem="PBm-VK-RDu" firstAttribute="trailing" secondItem="eLC-5B-r2c" secondAttribute="trailing" constant="8" id="fj4-Ec-GQY"/>
+                            <constraint firstItem="bKN-cb-7Yz" firstAttribute="leading" secondItem="PBm-VK-RDu" secondAttribute="leading" id="g10-T9-yCX"/>
                             <constraint firstItem="PBm-VK-RDu" firstAttribute="trailing" secondItem="4nO-U2-ynh" secondAttribute="trailing" id="iku-Cy-Bw0"/>
+                            <constraint firstItem="bKN-cb-7Yz" firstAttribute="trailing" secondItem="PBm-VK-RDu" secondAttribute="trailing" id="qAd-SZ-3Ym"/>
                             <constraint firstItem="PBm-VK-RDu" firstAttribute="bottom" secondItem="4nO-U2-ynh" secondAttribute="bottom" id="uut-m8-kD8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Друзья" id="Yr7-kI-2Vo"/>
                     <connections>
                         <outlet property="lettersControl" destination="eLC-5B-r2c" id="S5w-bE-Xyg"/>
+                        <outlet property="searchBar" destination="bKN-cb-7Yz" id="SQr-bR-has"/>
                         <outlet property="tableView" destination="4nO-U2-ynh" id="6xe-tS-mtE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ta9-Mv-6Rg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HmN-aS-VJ1">
+                    <connections>
+                        <action selector="tapView:" destination="KD7-Fl-P0n" id="ju9-ac-HVq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4300" y="-317"/>
+            <point key="canvasLocation" x="4298.5507246376819" y="-317.41071428571428"/>
         </scene>
         <!--Collection VC-->
         <scene sceneID="fkR-kE-dbM">
