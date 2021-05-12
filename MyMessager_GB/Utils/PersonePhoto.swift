@@ -9,30 +9,37 @@ import UIKit
 
 protocol PhotoWithControlPanel: UIView {
     var photo: Photo { get }
-    var likeControl: LikeControl { get }
-//    var likeControl: LikeControl
+//    var likeControl: LikeControl { get }
+    var controlPanel: ControlPanel { get }
 }
 
 @IBDesignable
 class PersonePhoto: UIView, PhotoWithControlPanel {
     var photo: Photo = PhotoImpl()
-    var likeControl: LikeControl = LikeControlImpl()
+//    var likeControl: LikeControl = LikeControlImpl()
+    var controlPanel: ControlPanel = ControlPanelImpl()
     
     //MARK: - layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
         addSubview(photo)
-        addSubview(likeControl)
+        addSubview(controlPanel)
         
+        controlPanel.commentControl.color  = .blue
         updateSize()
+        setConstreint()
     }
     
-    func updateSize(){
+    private func updateSize(){
         frame = CGRect(x: framePoint.x, y: framePoint.y, width: frameWight, height: frameHight)
         let photoShadowRadius = photo.shadowRadius
         photo.frame = CGRect(x: bounds.minX + photoShadowRadius, y: bounds.minY + photoShadowRadius, width: bounds.width - photoShadowRadius * 2.1, height: bounds.width - photoShadowRadius * 2.1)
         let likeControlWightAndHight = PersonePhoto.heightLikeControl(wightView: frameWight)
-        likeControl.frame = CGRect(x: photo.bounds.maxX - likeControlWightAndHight, y: photo.bounds.maxY + photo.shadowRadius, width: likeControlWightAndHight, height: likeControlWightAndHight)
+        controlPanel.frame = CGRect(x: photo.bounds.minX + photo.shadowRadius, y: photo.bounds.maxY + photo.shadowRadius, width: photo.bounds.width, height: likeControlWightAndHight)
+    }
+    
+    private func setConstreint(){
+        photo.bottomAnchor.constraint(equalTo: controlPanel.topAnchor,constant: 0).isActive = true
     }
     
     //MARK: - Frame
