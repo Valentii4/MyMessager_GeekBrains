@@ -18,38 +18,42 @@ class LettersControl: UIControl {
     
     var letters: [Letter] = []{
         didSet{
-//            setupView()
+            setupView()
         }
     }
     private var buttons: [UIButton] = []
-    private var stackView: UIStackView!
+    private var stackView: UIStackView?
     
 
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupView()
+//        self.setupView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setupView()
+//        self.setupView()
     }
     
     //MARK: - Setup
     func setupView(){
+        if let stackView = stackView{
+            stackView.removeFromSuperview()
+            buttons = []
+        }
         setButtoms(letters: letters)
         setStackView(buttons)
     }
     
     private func setStackView(_ views: [UIView]){
         stackView = UIStackView(arrangedSubviews: views)
-        stackView.frame = bounds
-        addSubview(stackView)
-        stackView.spacing = 0
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
+        stackView?.frame = bounds
+        addSubview(stackView!)
+        stackView?.spacing = 0
+        stackView?.axis = .vertical
+        stackView?.alignment = .center
+        stackView?.distribution = .fillEqually
     }
     
     private func setButtoms(letters: [Letter]){
@@ -79,10 +83,10 @@ class LettersControl: UIControl {
             button.isSelected = letter == self.selectedLetter
         }
     }
-
-    override func draw(_ rect: CGRect) {
-        setupView()
-    }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        setupView()
+    }
 
 }

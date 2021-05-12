@@ -23,6 +23,8 @@ final class FriendsViewController: UIViewController {
         
         friendsVM?.updateTableView = { [weak self] in
             self?.tableView.reloadData()
+            let letters = self?.friendsVM?.firstLetters ?? []
+            self?.lettersControl.letters = letters
         }
         searchBar.delegate = self
         tableView.tableFooterView = UIView()

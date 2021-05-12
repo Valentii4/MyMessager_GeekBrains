@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class PersonePhoto: UIView, Photo {
+class PersonePhoto: UIView, Photo, LikeControl {
     private let photo: PhotoImpl = PhotoImpl()
     private let likeControl: LikeControlImpl = LikeControlImpl()
     
@@ -119,8 +119,9 @@ class PersonePhoto: UIView, Photo {
         likeControl.addTarget(target, action: action, for: controlEvents)
     }
     
-    //MARK: - Draw
-    override func draw(_ rect: CGRect) {
+    //MARK: - layoutSubviews
+    override func layoutSubviews() {
+        super.layoutSubviews()
         addSubview(photo)
         addSubview(likeControl)
         
@@ -128,7 +129,17 @@ class PersonePhoto: UIView, Photo {
         photo.frame = CGRect(x: bounds.minX + shadowRadius, y: bounds.minY + shadowRadius, width: bounds.width - shadowRadius * 2.1, height: bounds.width - shadowRadius * 2.1)
         let likeControlWightAndHight = PersonePhoto.heightLikeControl(wightView: frameWight)
         likeControl.frame = CGRect(x: photo.bounds.maxX - likeControlWightAndHight, y: photo.bounds.maxY, width: likeControlWightAndHight, height: likeControlWightAndHight)
+        
     }
+//    override func draw(_ rect: CGRect) {
+//        addSubview(photo)
+//        addSubview(likeControl)
+//        
+//        frame = CGRect(x: framePoint.x, y: framePoint.y, width: frameWight, height: frameHight)
+//        photo.frame = CGRect(x: bounds.minX + shadowRadius, y: bounds.minY + shadowRadius, width: bounds.width - shadowRadius * 2.1, height: bounds.width - shadowRadius * 2.1)
+//        let likeControlWightAndHight = PersonePhoto.heightLikeControl(wightView: frameWight)
+//        likeControl.frame = CGRect(x: photo.bounds.maxX - likeControlWightAndHight, y: photo.bounds.maxY, width: likeControlWightAndHight, height: likeControlWightAndHight)
+//    }
     
     static func getHight(with wight: CGFloat) -> CGFloat{
         wight + heightLikeControl(wightView: wight)
