@@ -16,14 +16,14 @@ class PersoneCollectionViewCell: UICollectionViewCell {
     
     func configure(picture: Picture){
         self.model = picture
-        self.presonePhoto.image = picture.image
-        presonePhoto.countLikes = picture.likeCount
-        presonePhoto.isLiking = picture.isLiking
-        presonePhoto.addTarget(self, action: #selector(likeTarget), for: .valueChanged)
+        self.presonePhoto.photo.image = picture.image
+        presonePhoto.likeControl.counter = picture.likeCount
+        presonePhoto.likeControl.isLiking = picture.isLiking
+        presonePhoto.likeControl.addTarget(self, action: #selector(likeTarget), for: .valueChanged)
     }
     
     @objc private func likeTarget(){
-        model?.likeCount = presonePhoto.countLikes
-        model?.isLiking = presonePhoto.isLiking
+        model?.likeCount = presonePhoto.likeControl.counter
+        model?.isLiking = presonePhoto.likeControl.isLiking
     }
 }

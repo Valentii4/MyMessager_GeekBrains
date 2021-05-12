@@ -7,11 +7,16 @@
 
 import UIKit
 
-protocol LikeControl {
-    var countLikes: Int { get set }
-    var isLiking: Bool { get set }
+protocol Control: UIControl {
+    var counter: Int { get set }
     var color: UIColor { get set }
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)
+    var imageView: UIImageView { get }
+    var countersLabel: UILabel { get }
+}
+
+protocol LikeControl: Control{
+    var isLiking: Bool { get set }
 }
 
 @IBDesignable class LikeControlImpl: UIControl, LikeControl {
@@ -20,7 +25,7 @@ protocol LikeControl {
             setImage()
         }
     }
-    @IBInspectable var countLikes: Int = 0 {
+    @IBInspectable var counter: Int = 0 {
         didSet{
             setCountLikesLabel()
         }
@@ -32,8 +37,8 @@ protocol LikeControl {
         }
     }
     
-    private let imageView: UIImageView = UIImageView()
-    private let countLikesLabel: UILabel = UILabel()
+    var imageView: UIImageView = UIImageView()
+    var countersLabel: UILabel = UILabel()
     
     override func layoutSubviews() {
         imageView.frame = bounds
@@ -60,23 +65,23 @@ protocol LikeControl {
     }
     
     private func setCountLikesLabel(){
-        addSubview(countLikesLabel)
+        addSubview(countersLabel)
         let likeString: String?
         
-        switch countLikes {
+        switch counter {
         case 0..<1000:
-            likeString = String(countLikes)
+            likeString = String(counter)
         case 1000..<1_000_000:
-            likeString = String(countLikes/1000) + "k"
+            likeString = String(counter/1000) + "k"
         default:
             likeString = "-"
         }
-        countLikesLabel.textColor = color
-        countLikesLabel.translatesAutoresizingMaskIntoConstraints = false
-        countLikesLabel.text = likeString
+        countersLabel.textColor = color
+        countersLabel.translatesAutoresizingMaskIntoConstraints = false
+        countersLabel.text = likeString
         
-        countLikesLabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: -8).isActive = true
-        countLikesLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+        countersLabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: -8).isActive = true
+        countersLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
     }
     
     private func setImage(){
@@ -90,19 +95,11 @@ protocol LikeControl {
     @objc private func tapControl(){
         isLiking.toggle()
         if isLiking{
-            countLikes += 1
+            counter += 1
         }else{
-            countLikes -= 1
+            counter -= 1
         }
         sendActions(for: .valueChanged)
     }
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

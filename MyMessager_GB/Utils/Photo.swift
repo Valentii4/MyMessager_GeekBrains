@@ -12,7 +12,7 @@ enum Shape: String {
     case Circle = "circle"
 }
 
-protocol Photo {
+protocol Photo: UIView {
     var shapeEnum: Shape { get set }
     var shadowOpacity: CGFloat { get set }
     var shadowRadius: CGFloat { get set }
