@@ -10,6 +10,7 @@ class Picture{
     var image: UIImage?
     lazy var likeCount: Int = 0
     var isLiking:Bool = false
+    var commentCount: Int = 0
     
     init(image: UIImage?) {
         self.image = image

@@ -27,7 +27,7 @@ extension PersoneCollectionViewModelImpl: PersoneCollectionViewModel{
         person.photos.count
     }
     var title: String {
-        person.firstname
+        person.name
     }
     
     func getPhotoWithIndexPath(row: Int) -> Picture {

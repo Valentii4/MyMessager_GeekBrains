@@ -502,6 +502,7 @@
                     <connections>
                         <segue destination="yTL-Jn-snH" kind="relationship" relationship="viewControllers" id="8YT-Pc-WJr"/>
                         <segue destination="Vr3-8h-vAC" kind="relationship" relationship="viewControllers" id="o80-K3-heo"/>
+                        <segue destination="O6d-Jk-OYx" kind="relationship" relationship="viewControllers" id="WN7-Px-8am"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9U-X6-qgu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -525,6 +526,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmu-m6-b2B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="88.392857142857139"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="oCy-uY-btl">
+            <objects>
+                <viewController id="O6d-Jk-OYx" customClass="NewsViewController" customModule="MyMessager_GB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ach-bf-IlE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B6K-jb-7cI">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="O6d-Jk-OYx" id="qCa-mh-NZi"/>
+                                    <outlet property="delegate" destination="O6d-Jk-OYx" id="tIb-pg-t7l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GQy-qS-0Ay"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B6K-jb-7cI" firstAttribute="top" secondItem="GQy-qS-0Ay" secondAttribute="top" id="LVc-9L-dwS"/>
+                            <constraint firstItem="GQy-qS-0Ay" firstAttribute="bottom" secondItem="B6K-jb-7cI" secondAttribute="bottom" id="P4j-oc-7pl"/>
+                            <constraint firstItem="B6K-jb-7cI" firstAttribute="leading" secondItem="GQy-qS-0Ay" secondAttribute="leading" id="ejE-eR-LLq"/>
+                            <constraint firstItem="GQy-qS-0Ay" firstAttribute="trailing" secondItem="B6K-jb-7cI" secondAttribute="trailing" id="g4i-id-YJJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="42i-jH-McO"/>
+                    <connections>
+                        <outlet property="tableView" destination="B6K-jb-7cI" id="mRE-70-Ka7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BhD-rK-V29" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3405" y="-1026"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="tWA-ZU-hbQ">

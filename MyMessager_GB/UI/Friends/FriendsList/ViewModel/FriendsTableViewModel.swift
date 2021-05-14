@@ -56,17 +56,17 @@ extension FriendsTableViewModelImpl: FriendsTableViewModel{
     func updateFrendWithName(name: String?){
         var allFriends: [Persone]
         if let name = name, name != ""{
-            allFriends = Persone.frends.filter{ $0.firstname.contains(name)}
+            allFriends = Persone.frends.filter{ $0.name.contains(name)}
             friends.removeAll()
         }else{
             allFriends = Persone.frends
         }
-        allFriends.sort{ $0.firstname < $1.firstname}
-        firstLetters = Array(Set(allFriends.compactMap{String($0.firstname.first ?? "*")})).sorted()
+        allFriends.sort{ $0.name < $1.name}
+        firstLetters = Array(Set(allFriends.compactMap{String($0.name.first ?? "*")})).sorted()
         
         for firstLetter in firstLetters{
             let frendsWithFirstLetter = allFriends.filter { friend in
-                String(friend.firstname.first ?? "*") == firstLetter
+                String(friend.name.first ?? "*") == firstLetter
             }
             friends[firstLetter] = frendsWithFirstLetter
         }
@@ -87,7 +87,7 @@ extension FriendsTableViewModelImpl: FriendsTableViewModel{
         guard let friend = try? getFriend(row: row, section: section) else{
             throw DefaultErrors.notFoundCell
         }
-        return friend.firstname + " " + friend.surname
+        return friend.name + " " + friend.surname
     }
     
     func getPhoto(row: Int, section: Int) throws -> UIImage {

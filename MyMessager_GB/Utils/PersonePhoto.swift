@@ -16,8 +16,42 @@ protocol PhotoWithControlPanel: UIView {
 @IBDesignable
 class PersonePhoto: UIView, PhotoWithControlPanel {
     var photo: Photo = PhotoImpl()
-//    var likeControl: LikeControl = LikeControlImpl()
     var controlPanel: ControlPanel = ControlPanelImpl()
+    
+    
+    @IBInspectable var image: UIImage?{
+        get{
+            photo.image
+        }
+        set{
+            photo.image = newValue
+        }
+    }
+    @IBInspectable var likeCount: Int {
+        get {
+            controlPanel.likeControl.counter
+        }
+        set{
+            controlPanel.likeControl.counter = newValue
+        }
+    }
+    @IBInspectable var commentCount: Int {
+        get{
+            controlPanel.commentControl.counter
+        }
+        set{
+            controlPanel.commentControl.counter = newValue
+        }
+    }
+    @IBInspectable var isLiking: Bool{
+        get{
+            controlPanel.likeControl.isLiking
+        }
+        set{
+            controlPanel.likeControl.isLiking = newValue
+        }
+    }
+    
     
     //MARK: - layoutSubviews
     override func layoutSubviews() {
@@ -28,6 +62,17 @@ class PersonePhoto: UIView, PhotoWithControlPanel {
         controlPanel.commentControl.color  = .blue
         updateSize()
         setConstreint()
+    }
+    
+    func setter(likeCount: Int, isLike: Bool, comentCount: Int, image: UIImage){
+        self.controlPanel.likeControl.counter = likeCount
+        self.controlPanel.likeControl.isLiking = isLike
+        self.controlPanel.commentControl.counter = comentCount
+        self.photo.image = image
+    }
+    
+    func setter(publication: Publication){
+        setter(likeCount: publication.likeCount, isLike: publication.isLikingPost, comentCount: publication.commentCount, image: publication.imagePost ?? UIImage(systemName: "scribble.variable")!)
     }
     
     private func updateSize(){
