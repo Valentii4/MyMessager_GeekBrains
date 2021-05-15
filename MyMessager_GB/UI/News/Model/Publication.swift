@@ -56,10 +56,9 @@ struct NewsPublication: Publication{
     static func getExaplePost() -> [Publication]{
         let senders = Persone.frends
         var result: [Publication] = []
-//        for (index,sender) in senders.enumerated(){
-            result.append(NewsPublication(sender: senders[0], post: senders[0].photos.first!, "Описание текста \(index)"))
-        result.append(NewsPublication(sender: senders[1], post: senders[1].photos.first!, "Описание текста \(index)"))
-//        }
+        for (index, sender) in senders.enumerated(){
+            result.append(NewsPublication(sender: sender, post: sender.photos.first!, "Описание текста \(index)"))
+        }
         return result
     }
 }
