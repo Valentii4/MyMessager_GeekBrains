@@ -30,7 +30,8 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
             print("news cell equal nil")
             return UITableViewCell()
         }
-        cell.configure(publication: news[indexPath.row])
+        let new = news[indexPath.row]
+        cell.configure(publication: new)
         return cell
     }
     

@@ -28,21 +28,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-1t-RRp" customClass="PersonePhoto" customModule="MyMessager_GB" customModuleProvider="target">
-                        <rect key="frame" x="16" y="146.99999999999997" width="288" height="316.79999999999995"/>
+                        <rect key="frame" x="16" y="147" width="288" height="318"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="usI-Rg-gKH" secondAttribute="trailing" constant="8" id="3w8-lt-bb1"/>
-                    <constraint firstItem="Lga-R1-wSC" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="Gt8-aA-tlM"/>
                     <constraint firstItem="Lga-R1-wSC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="KEh-so-Q7Z"/>
                     <constraint firstItem="Lga-R1-wSC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Mm4-UT-gI8"/>
                     <constraint firstItem="uSP-1t-RRp" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="OEb-fk-4T1"/>
+                    <constraint firstItem="Lga-R1-wSC" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.210744" id="ORa-rK-E5n"/>
                     <constraint firstItem="usI-Rg-gKH" firstAttribute="leading" secondItem="Lga-R1-wSC" secondAttribute="leading" id="Q2V-0O-P8h"/>
                     <constraint firstItem="usI-Rg-gKH" firstAttribute="top" secondItem="Lga-R1-wSC" secondAttribute="bottom" constant="8" id="Sgp-e9-z4p"/>
                     <constraint firstItem="uSP-1t-RRp" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.657025" id="Xvp-pc-RsO"/>
                     <constraint firstAttribute="trailing" secondItem="Lga-R1-wSC" secondAttribute="trailing" constant="16" id="alS-rh-efb"/>
-                    <constraint firstItem="Lga-R1-wSC" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.210744" id="d6V-ID-zdi"/>
                     <constraint firstItem="uSP-1t-RRp" firstAttribute="top" secondItem="usI-Rg-gKH" secondAttribute="bottom" constant="8" id="htl-Sb-Ztk"/>
                     <constraint firstItem="uSP-1t-RRp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jpA-6u-O7G"/>
                     <constraint firstAttribute="bottomMargin" secondItem="uSP-1t-RRp" secondAttribute="bottom" constant="8" id="w8Z-f4-H9t"/>

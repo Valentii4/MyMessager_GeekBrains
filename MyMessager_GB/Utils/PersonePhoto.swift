@@ -9,7 +9,6 @@ import UIKit
 
 protocol PhotoWithControlPanel: UIView {
     var photo: Photo { get }
-//    var likeControl: LikeControl { get }
     var controlPanel: ControlPanel { get }
 }
 
@@ -52,16 +51,27 @@ class PersonePhoto: UIView, PhotoWithControlPanel {
         }
     }
     
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        updateSize()
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//        updateSize()
+//    }
     
     //MARK: - layoutSubviews
+    var isSetingsConstraint = false
     override func layoutSubviews() {
         super.layoutSubviews()
         addSubview(photo)
         addSubview(controlPanel)
-        
         controlPanel.commentControl.color  = .blue
-        updateSize()
-        setConstreint()
+        if !isSetingsConstraint{
+            updateSize()
+            isSetingsConstraint = true
+        }
     }
     
     func setter(likeCount: Int, isLike: Bool, comentCount: Int, image: UIImage){
@@ -76,29 +86,27 @@ class PersonePhoto: UIView, PhotoWithControlPanel {
     }
     
     private func updateSize(){
-        frame = CGRect(x: framePoint.x, y: framePoint.y, width: frameWight, height: frameHight)
-        let photoShadowRadius = photo.shadowRadius
-        photo.frame = CGRect(x: bounds.minX + photoShadowRadius, y: bounds.minY + photoShadowRadius, width: bounds.width - photoShadowRadius * 2.1, height: bounds.width - photoShadowRadius * 2.1)
-        let likeControlWightAndHight = PersonePhoto.heightLikeControl(wightView: frameWight)
-        controlPanel.frame = CGRect(x: photo.bounds.minX + photo.shadowRadius, y: photo.bounds.maxY + photo.shadowRadius, width: photo.bounds.width, height: likeControlWightAndHight)
+        photo.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.width)
+        controlPanel.frame = CGRect(x: photo.frame.minX, y: photo.frame.maxY, width: photo.frame.width, height: PersonePhoto.heightLikeControl(wightView: photo.frame.width))
+        photo.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        photo.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        photo.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        photo.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.5).isActive = true
+        photo.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.5).isActive = true
+        controlPanel.topAnchor.constraint(equalTo: photo.bottomAnchor, constant: 0).isActive = true
+        controlPanel.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1).isActive = true
+        controlPanel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        controlPanel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        controlPanel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        controlPanel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        controlPanel.translatesAutoresizingMaskIntoConstraints = true
+        photo.translatesAutoresizingMaskIntoConstraints = true
     }
     
     private func setConstreint(){
-        photo.bottomAnchor.constraint(equalTo: controlPanel.topAnchor,constant: 0).isActive = true
+//        photo.bottomAnchor.constraint(equalTo: controlPanel.topAnchor,constant: 0).isActive = true
     }
-    
-    //MARK: - Frame
-    private var frameWight: CGFloat = 0
-    private var frameHight: CGFloat = 0
-    private var framePoint: CGPoint = CGPoint(x: 0, y: 0)
-    
-    override var frame: CGRect {
-        didSet{
-            frameWight = frame.width
-            frameHight = PersonePhoto.getHight(with: frameWight)
-            framePoint = CGPoint(x: frame.minX, y: frame.minY)
-        }
-    }
+
     
     //MARK: - Static
     static func getHight(with wight: CGFloat) -> CGFloat{

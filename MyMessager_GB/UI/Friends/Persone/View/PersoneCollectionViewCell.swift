@@ -20,10 +20,8 @@ class PersoneCollectionViewCell: UICollectionViewCell {
     
     func configure(picture: Picture){
         self.model = picture
-        self.presonePhoto.photo.image = picture.image
-        presonePhoto.controlPanel.likeControl.counter = picture.likeCount
-        presonePhoto.controlPanel.likeControl.isLiking = picture.isLiking
-        presonePhoto.controlPanel.likeControl.addTarget(self, action: #selector(likeTarget), for: .valueChanged)
+        presonePhoto.setter(likeCount: picture.likeCount, isLike: picture.isLiking, comentCount: picture.commentCount, image: picture.image ?? UIImage(systemName: "persone")!)
+        presonePhoto.translatesAutoresizingMaskIntoConstraints = false
     }
     
     @objc private func likeTarget(){

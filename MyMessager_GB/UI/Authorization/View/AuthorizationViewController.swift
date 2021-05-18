@@ -16,12 +16,27 @@ final class AuthorizationViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginTextField: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vm = AuthorizationViewModelImpl()
         settingOnStart()
+        let indicatorView = UIView(frame: view.bounds)
+        indicatorView.layer.opacity = 0.7
+        indicatorView.backgroundColor = .black
+        let poinstView = ActivityIndicatorWithPoints(frame: CGRect(x: indicatorView.bounds.midX, y: indicatorView.bounds.midY, width: 100, height: 40))
+        indicatorView.addSubview(poinstView)
+        poinstView.pointCount = 3
+        poinstView.startAnimation()
+        self.view.addSubview(indicatorView)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 5000000000)) {
+            indicatorView.removeFromSuperview()
+        }
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
