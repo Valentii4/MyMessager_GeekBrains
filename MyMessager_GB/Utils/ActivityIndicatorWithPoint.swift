@@ -22,6 +22,17 @@ class ActivityIndicatorWithPoints: UIView{
         }
     }
     
+    var color: UIColor {
+        set {
+            for point in points{
+                point.colorPoint = newValue
+            }
+        }
+        get{
+            points.first?.colorPoint ?? UIColor.black
+        }
+    }
+    
     func startAnimation(){
         
         UIView.animateKeyframes(withDuration: TimeInterval(pointCount),

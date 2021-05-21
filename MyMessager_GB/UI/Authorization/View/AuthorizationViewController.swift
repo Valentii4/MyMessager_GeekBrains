@@ -22,20 +22,27 @@ final class AuthorizationViewController: UIViewController {
         super.viewDidLoad()
         vm = AuthorizationViewModelImpl()
         settingOnStart()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let indicatorView = UIView(frame: view.bounds)
         indicatorView.layer.opacity = 0.7
         indicatorView.backgroundColor = .black
-        let poinstView = ActivityIndicatorWithPoints(frame: CGRect(x: indicatorView.bounds.midX, y: indicatorView.bounds.midY, width: 100, height: 40))
+        view.addSubview(indicatorView)
+        let pointsWeight: CGFloat = 100
+        let pointsHeight: CGFloat = 40
+        let poinstView = ActivityIndicatorWithPoints(frame: CGRect(x: indicatorView.bounds.midX - pointsWeight/2, y: indicatorView.bounds.midY - pointsHeight/2, width: pointsWeight, height: pointsHeight))
         indicatorView.addSubview(poinstView)
         poinstView.pointCount = 3
+        poinstView.color = .systemGray4
         poinstView.startAnimation()
-        self.view.addSubview(indicatorView)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 5000000000)) {
-            indicatorView.removeFromSuperview()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        indicatorView.removeFromSuperview()
+        indicatorView.isHidden = true
+        poinstView.isHidden = true
         }
-        
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
